@@ -4,16 +4,16 @@
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=flat&logo=stmicroelectronics&logoColor=white)
 
-Zdalnie sterowanego robota opartego na mikrokontrolerze STM32G070RB z czujnikiem HC-SR04 oraz komunikacją Bluetooth.
+Zdalnie sterowany robot oparty na mikrokontrolerze STM32G070RB z czujnikiem HC-SR04 oraz komunikacją Bluetooth.
 
 > **⚠️ Uwaga: Kroki wykonania są istotne, patrz punkt 4.**
 
 
 ## 1. Podzespoły
 
-- Chassis Rectangle 2WD - 2-kołowe podwozie robota z napędem - Podwozie robota z napędem na dwa koła.
+- Chassis Rectangle 2WD - 2-kołowe podwozie robota z napędem.
 
-- Nucleo-G070RB - zestaw startowy z mikrokontrolerem STM32G070RB - Mikrokontroler do sterowania robotem.
+- Nucleo-G070RB - zestaw startowy z mikrokontrolerem STM32G070RB.
 
 - Moduł Bluetooth HC-05 - Moduł do komunikacji bezprzewodowej.
 
@@ -27,9 +27,31 @@ Zdalnie sterowanego robota opartego na mikrokontrolerze STM32G070RB z czujnikiem
 
 - Przewody połączeniowe M-F różnokolorowe 17 cm (40 szt.) - Przewody do połączeń elektrycznych.
 
+- Zestaw nylonowych śrub i tulei M3.
+
 - Płytka stykowa biała 170 pól prototypowa - Płytka do prototypowania połączeń.
 
 
 ## 2. Schemat Połączeń
 
-![Schemat Połączeń](img/img1.png)
+![Schemat Połączeń 1](img/img1.png)
+
+![Schemat Połączeń 2](img/img2.png)
+
+
+## 3. Konfiguracja projektu STM32CubeIDE
+
+
+> W tej części przedstawiona jest cała konfiguracja środowiska STM32CubeIDE, łącznie z tworzeniem projektu, ustawianiem pinów, timerów oraz komunikacji USART. 
+-------------------------------------------------
+## 3.1 Tworzenie projektu
+
+### Wyszukujemy STM32G070RB oraz wybieramy opcje "NUCLEO"
+
+![Konfiguracja 1](img/img3.png)
+
+### Przechodzimy dalej, nadajemy nazwę swojemu projektowi i go tworzymy
+
+![Konfiguracja 2](img/img4.png)
+
+### 
