@@ -4,59 +4,69 @@
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=flat&logo=stmicroelectronics&logoColor=white)
 
-Zdalnie sterowany robot oparty na mikrokontrolerze STM32G070RB z czujnikiem HC-SR04 oraz komunikacją Bluetooth.
+Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem **HC-SR04** oraz komunikacją **Bluetooth**.
 
-> **⚠️ Uwaga: Kroki wykonania są istotne, patrz punkt 4.**
+> ⚠️ **Uwaga:** Nie podłączaj baterii do mikrokontrolera bez zmiany ustawień zworki! <br>
+> Natywnie zworka ustawiona jest na pozycji STLINK, co oznacza, że mikrokontroler zasilany jest przez port Micro USB. Baterie podłącz na koniec, gdy cały projekt będzie gotowy. Wtedy przełóż zworkę na pozycję VIN, co pozwoli na zasilenie mikrokontrolera z napięcia do 12V. Inaczej możesz uszkodzić swoją płytkę!
+⚠️ 
 
+<div align="center">
+  <img src="img/warning.png" alt="Schemat Połączeń 1" width="70%">
+</div>
 
-## 1. Podzespoły
+## 📦 1. Podzespoły
 
-- Chassis Rectangle 2WD - 2-kołowe podwozie robota z napędem.
+- 🛞 **Chassis Rectangle 2WD** – 2-kołowe podwozie robota z napędem
+- 📦 **Nucleo-G070RB** – zestaw startowy z mikrokontrolerem STM32G070RB
+- 📶 **Bluetooth HC-05** – moduł komunikacji bezprzewodowej
+- ⚙️ **L293D** – 2-kanałowy sterownik silników
+- 📏 **HC-SR04** – ultradźwiękowy czujnik odległości
+- 🔋 **Ogniwa 18650 (x3)** – akumulatory zasilające
+- 🧰 **Koszyk na ogniwa 18650 szeregowy** – uchwyt na baterie
+- 🔌 **Przewody M-F 17 cm** – przewody połączeniowe
+- 🔩 **Zestaw śrub i tulei M3** – do montażu mechanicznego
+- 🧪 **Płytka stykowa (170 pól)** – do prototypowania połączeń
 
-- Nucleo-G070RB - zestaw startowy z mikrokontrolerem STM32G070RB.
+---
 
-- Moduł Bluetooth HC-05 - Moduł do komunikacji bezprzewodowej.
+## 🔌 2. Schemat Połączeń
 
-- Moduł L293D - 2-kanałowy sterownik silnika - Sterownik do obsługi silników robota.
+<div align="center">
+  <img src="img/img1.png" alt="Schemat Połączeń 1" width="70%">
+</div>
 
-- Ultradźwiękowy czujnik odległości HC-SR04 - Czujnik do pomiaru odległości.
+<div align="center">
+  <img src="img/img2.png" alt="Schemat Połączeń 2" width="70%">
+</div>
 
-- Ogniwo 18650 - Akumulator do zasilania robota (3 sztuki).
+---
 
-- Koszyk na 3 akumulatory typu 18650 - Koszyk na akumulatory.
+## 🛠️ 3. Konfiguracja projektu STM32CubeIDE
 
-- Przewody połączeniowe M-F różnokolorowe 17 cm (40 szt.) - Przewody do połączeń elektrycznych.
+> W tej sekcji przedstawiona jest pełna konfiguracja środowiska **STM32CubeIDE**, w tym tworzenie projektu, ustawienia pinów, timerów oraz komunikacji przez USART.
 
-- Zestaw nylonowych śrub i tulei M3.
+---
 
-- Płytka stykowa biała 170 pól prototypowa - Płytka do prototypowania połączeń.
+### ⚙️ 3.1 Tworzenie projektu
 
+#### Wybierz mikrokontroler STM32G070RB i opcję "NUCLEO"
 
-## 2. Schemat Połączeń
+<div align="center">
+  <img src="img/img3.png" alt="Konfiguracja STM32G070RB" width="70%">
+</div>
 
-![Schemat Połączeń 1](img/img1.png)
+#### Nazwij swój projekt i utwórz go
 
-![Schemat Połączeń 2](img/img2.png)
+<div align="center">
+  <img src="img/img4.png" alt="Tworzenie projektu" width="70%">
+</div>
 
+---
 
-## 3. Konfiguracja projektu STM32CubeIDE
+### 📌 3.2 Schemat i konfiguracja pinów
 
+<div align="center">
+  <img src="img/img5.png" alt="Schemat pinów STM32G070RB" width="70%">
+</div>
 
-> W tej części przedstawiona jest cała konfiguracja środowiska STM32CubeIDE, łącznie z tworzeniem projektu, ustawianiem pinów, timerów oraz komunikacji USART. 
--------------------------------------------------
-## 3.1 Tworzenie projektu
-
-### Wyszukujemy STM32G070RB oraz wybieramy opcje "NUCLEO"
-
-![Konfiguracja 1](img/img3.png)
-
-### Przechodzimy dalej, nadajemy nazwę swojemu projektowi i go tworzymy
-
-![Konfiguracja 2](img/img4.png)
-
-### 3.2 Schemat pinów STM32G070RB
-
-![Konfiguracja ](img/img5.png)
-
-### 3.2 Konfiguracja pinów GPIO_OUTPUT 
-
+#### Konfiguracja GPIO jako `GPIO_Output`  
