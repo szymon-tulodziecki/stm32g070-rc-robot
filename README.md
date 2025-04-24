@@ -54,4 +54,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze STM32G070RB z czujnikiem HC-S
 
 ![Konfiguracja 2](img/img4.png)
 
-### 
+### 3.2 Schemat pinów STM32G070RB
+
+![Konfiguracja ](img/img5.png)
+
+### 3.2 Konfiguracja pinów GPIO_OUTPUT 
+
