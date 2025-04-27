@@ -1,10 +1,10 @@
 # ⭐ Zdalnie Sterowany Robot (C, STM32)
 
-![GitHub stars](https://img.shields.io/github/stars/szymon-tulodziecki/stm32g070-rc-robot)
+![GitHub stars](https://img.shields.io/github/stars/szymon-tulodziecki/stm32g071rb-rc-robot)
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=flat&logo=stmicroelectronics&logoColor=white)
 
-Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem **HC-SR04** oraz komunikacją **Bluetooth**.
+Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem **HC-SR04** oraz komunikacją **Bluetooth**.
 
 > ⚠️ **Uwaga:** Nie podłączaj baterii do mikrokontrolera bez zmiany ustawień zworki! <br>
 > Domyślnie zworka jest ustawiona w pozycji ST-LINK, co oznacza, że mikrokontroler jest zasilany przez port Micro USB. Baterie podłącz na końcu, gdy cały projekt będzie gotowy. Następnie przełóż zworkę na pozycję VIN, co pozwoli zasilić mikrokontroler napięciem do 12 V. W przeciwnym razie możesz uszkodzić płytkę! <br>
@@ -17,7 +17,7 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
 ## 📦 1. Podzespoły
 
 - 🛞 **Chassis Rectangle 2WD** – 2-kołowe podwozie robota z napędem
-- 📦 **Nucleo-G070RB** – zestaw startowy z mikrokontrolerem STM32G070RB
+- 📦 **Nucleo-G071RB** – zestaw startowy z mikrokontrolerem STM32G071RB
 - 📶 **Bluetooth HC-05** – moduł komunikacji bezprzewodowej
 - ⚙️ **L293D** – 2-kanałowy sterownik silników
 - 📏 **HC-SR04** – ultradźwiękowy czujnik odległości
@@ -49,10 +49,10 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
 
 ### ⚙️ 3.1 Tworzenie projektu
 
-#### Wybierz mikrokontroler STM32G070RB i opcję "NUCLEO"
+#### Wybierz mikrokontroler STM32G071RB i opcję "NUCLEO"
 
 <div align="center">
-  <img src="img/img3.png" alt="Konfiguracja STM32G070RB" width="70%">
+  <img src="img/img3.PNG" alt="Konfiguracja STM32G071RB" width="70%">
 </div>
 
 #### Nazwij swój projekt i utwórz go
@@ -63,16 +63,16 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
 
 ---
 
-### 📌 3.2 Schemat i konfiguracja pinów
+### 📌 3.2 Konfiguracja pinów oraz ustawień projektu:
 
 <div align="center">
-  <img src="img/img5.png" alt="Schemat pinów STM32G070RB" width="70%">
+  <img src="img/img5.png" alt="Schemat pinów STM32G071RB" width="70%">
 </div>
 
-#### Skonfiguruj GPIO jako `GPIO_Output`, zgodnie ze schematem, i nadaj im odpowiednie nazwy: 
+#### Skonfiguruj piny PA0, PA1, PA4, PA5 jako `GPIO_Output`, zgodnie ze schematem, i nadaj im odpowiednie nazwy (IN1, IN2, IN3, IN4): 
 
 <div align="center">
-  <img src="img/img6.png" alt="Piny GPIO_Output" width="70%">
+  <img src="img/img6.PNG" alt="Piny GPIO_Output" width="70%">
 </div>
 
 #### Wyszukaj "USART2" i włącz go w trybie asynchronicznym, ustawiając Baud Rate na 9600:
@@ -87,6 +87,8 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
   <img src="img/img8.PNG" alt="USART" width="70%">
 </div>
 
+> Włączenie USART2 automatycznie skonfiguruje odpowiednie porty i nada im nazwy
+
 #### W sekcji Timers dla timera 1 ustaw PWM Generation CH1 dla Channel 1 oraz PWM Generation CH2 dla Channel 2:
 
 <div align="center">
@@ -99,7 +101,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
   <img src="img/img10.PNG" alt="Sterowanie" width="70%">
 </div>
 
-#### Przejdź do timera 2 i ustaw Channel 3 w trybie Input Capture Direct Mode:
+> Włączenie kanałów na Timerze automatycznie skonfiguruje odpowiednie porty i nada im nazwy
+
+#### Przejdź do timera 2 i ustaw Channel 2 w trybie Input Capture Direct Mode:
 
 <div align="center">
   <img src="img/img11.PNG" alt="Czujnik" width="70%">
@@ -111,8 +115,21 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
   <img src="img/img12.PNG" alt="Czujnik" width="70%">
 </div>
 
+> Analogicznie dla timera 2 ustawienie jego kanału nada mu nazwę ale tym razem dla wygody zmienimy ją (kolejny krok)
+
 #### Pin PB3 ustaw w trybie `GPIO_Output` i nadaj mu nazwę `TRIG`, a pinu PB10 (Channel 2 timera 2) nazwę `ECHO`:
 
 <div align="center">
   <img src="img/img13.PNG" alt="Czujnik" width="70%">
 </div>
+
+#### Włącz przerwania dla Timera 2:
+
+<div align="center">
+  <img src="img/img14.jpeg" alt="Czujnik" width="70%">
+</div>
+
+
+### 📁 4. Zapisz projekt, akceptując generowanie kodu
+
+#### Wklej do funkcji `main` kod z załącznika, debuguj go, podłącz swoją płytkę Nucleo do komputera, skompiluj i wgraj go na nią. Odłącz kabel, przełóż zworkę na pozycję VIN i podłącz baterię zgodnie z wcześniejszym schematem.
