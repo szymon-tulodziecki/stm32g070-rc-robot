@@ -7,8 +7,8 @@
 Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem **HC-SR04** oraz komunikacją **Bluetooth**.
 
 > ⚠️ **Uwaga:** Nie podłączaj baterii do mikrokontrolera bez zmiany ustawień zworki! <br>
-> Natywnie zworka ustawiona jest na pozycji STLINK, co oznacza, że mikrokontroler zasilany jest przez port Micro USB. Baterie podłącz na koniec, gdy cały projekt będzie gotowy. Wtedy przełóż zworkę na pozycję VIN, co pozwoli na zasilenie mikrokontrolera z napięcia do 12V. Inaczej możesz uszkodzić swoją płytkę!
-⚠️ 
+> Domyślnie zworka jest ustawiona w pozycji ST-LINK, co oznacza, że mikrokontroler jest zasilany przez port Micro USB. Baterie podłącz na końcu, gdy cały projekt będzie gotowy. Następnie przełóż zworkę na pozycję VIN, co pozwoli zasilić mikrokontroler napięciem do 12 V. W przeciwnym razie możesz uszkodzić płytkę! <br>
+> ⚠️
 
 <div align="center">
   <img src="img/warning.png" alt="Schemat Połączeń 1" width="70%">
@@ -22,7 +22,7 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
 - ⚙️ **L293D** – 2-kanałowy sterownik silników
 - 📏 **HC-SR04** – ultradźwiękowy czujnik odległości
 - 🔋 **Ogniwa 18650 (x3)** – akumulatory zasilające
-- 🧰 **Koszyk na ogniwa 18650 szeregowy** – uchwyt na baterie
+- 🧰 **Koszyk na ogniwa 18650 (szeregowy)** – uchwyt na baterie
 - 🔌 **Przewody M-F 17 cm** – przewody połączeniowe
 - 🔩 **Zestaw śrub i tulei M3** – do montażu mechanicznego
 - 🧪 **Płytka stykowa (170 pól)** – do prototypowania połączeń
@@ -69,4 +69,50 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G070RB** z czujnikiem 
   <img src="img/img5.png" alt="Schemat pinów STM32G070RB" width="70%">
 </div>
 
-#### Konfiguracja GPIO jako `GPIO_Output`  
+#### Skonfiguruj GPIO jako `GPIO_Output`, zgodnie ze schematem, i nadaj im odpowiednie nazwy: 
+
+<div align="center">
+  <img src="img/img6.png" alt="Piny GPIO_Output" width="70%">
+</div>
+
+#### Wyszukaj "USART2" i włącz go w trybie asynchronicznym, ustawiając Baud Rate na 9600:
+
+<div align="center">
+  <img src="img/img7.PNG" alt="USART" width="70%">
+</div>
+
+#### Przejdź do zakładki "NVIC Setting" i włącz przerwania:
+
+<div align="center">
+  <img src="img/img8.PNG" alt="USART" width="70%">
+</div>
+
+#### W sekcji Timers dla timera 1 ustaw PWM Generation CH1 dla Channel 1 oraz PWM Generation CH2 dla Channel 2:
+
+<div align="center">
+  <img src="img/img9.PNG" alt="Sterowanie" width="70%">
+</div>
+
+#### Ustaw wartość Prescaler na 16, a Counter Period na 999:
+
+<div align="center">
+  <img src="img/img10.PNG" alt="Sterowanie" width="70%">
+</div>
+
+#### Przejdź do timera 2 i ustaw Channel 3 w trybie Input Capture Direct Mode:
+
+<div align="center">
+  <img src="img/img11.PNG" alt="Czujnik" width="70%">
+</div>
+
+#### Ustaw Prescaler na 16:
+
+<div align="center">
+  <img src="img/img12.PNG" alt="Czujnik" width="70%">
+</div>
+
+#### Pin PB3 ustaw w trybie `GPIO_Output` i nadaj mu nazwę `TRIG`, a pinu PB10 (Channel 2 timera 2) nazwę `ECHO`:
+
+<div align="center">
+  <img src="img/img13.PNG" alt="Czujnik" width="70%">
+</div>
