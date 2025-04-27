@@ -1,6 +1,6 @@
 # ⭐ Zdalnie Sterowany Robot (C, STM32)
 
-![GitHub stars](https://github.com/szymon-tulodziecki/stm32g071-rc-robot)
+![GitHub stars](https://img.shields.io/github/stars/szymon-tulodziecki/stm32g071-rc-robot)
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=flat&logo=stmicroelectronics&logoColor=white)
 
