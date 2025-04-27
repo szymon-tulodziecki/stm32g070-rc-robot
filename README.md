@@ -87,7 +87,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
   <img src="img/img8.PNG" alt="USART" width="70%">
 </div>
 
+<br>
 > Włączenie USART2 automatycznie skonfiguruje odpowiednie porty i nada im nazwy
+<br>
 
 #### W sekcji Timers dla timera 1 ustaw PWM Generation CH1 dla Channel 1 oraz PWM Generation CH2 dla Channel 2:
 
@@ -101,7 +103,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
   <img src="img/img10.PNG" alt="Sterowanie" width="70%">
 </div>
 
+<br>
 > Włączenie kanałów na Timerze automatycznie skonfiguruje odpowiednie porty i nada im nazwy
+<br>
 
 #### Przejdź do timera 2 i ustaw Channel 2 w trybie Input Capture Direct Mode:
 
@@ -115,7 +119,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
   <img src="img/img12.PNG" alt="Czujnik" width="70%">
 </div>
 
+<br>
 > Analogicznie dla timera 2 ustawienie jego kanału nada mu nazwę ale tym razem dla wygody zmienimy ją (kolejny krok)
+<br>
 
 #### Pin PB3 ustaw w trybie `GPIO_Output` i nadaj mu nazwę `TRIG`, a pinu PB10 (Channel 2 timera 2) nazwę `ECHO`:
 
