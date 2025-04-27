@@ -16,7 +16,7 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
 
 ## 📦 1. Podzespoły
 
-- 🛞 **Chassis Rectangle 2WD** – 2-kołowe podwozie robota z napędem
+- 🛞 **Podwozie własnego projektu** – góra i dół wycięte na laserze, połączone śrubami 10mm, a ścianki wydrukowane w 3D (Archiwum CircularChassis2WD)
 - 📦 **Nucleo-G071RB** – zestaw startowy z mikrokontrolerem STM32G071RB
 - 📶 **Bluetooth HC-05** – moduł komunikacji bezprzewodowej
 - ⚙️ **L293D** – 2-kanałowy sterownik silników
@@ -135,6 +135,7 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
   <img src="img/img14.jpeg" alt="Czujnik" width="70%">
 </div>
 
+---
 
 ### 📁 4. Zapisz projekt, akceptując generowanie kodu
 
