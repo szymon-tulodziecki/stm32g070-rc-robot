@@ -1,6 +1,5 @@
 # ⭐ Zdalnie Sterowany Robot (C, STM32)
-
-![GitHub stars](https://img.shields.io/github/stars/szymon-tulodziecki/stm32g071-rc-robot)
+![GitHub stars](https://img.shields.io/github/stars/szymon-tulodziecki/stm32g071-rc-robot?style=flat)
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=flat&logo=stmicroelectronics&logoColor=white)
 
@@ -16,8 +15,8 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
 
 ## 📦 1. Podzespoły
 
-- 🛞 **Podwozie własnego projektu** – góra i dół wycięte na laserze, połączone śrubami 10mm, a ścianki wydrukowane w 3D  
-  &nbsp;&nbsp;• [Repozytorium projektu podwozia (CircularChassis2WD)](https://github.com/szymon-tulodziecki/CircularChassis2WD)
+- 🛞 **Podwozie własnego projektu** – góra i dół wycięte na laserze, połączone śrubami 10mm, a ścianki wydrukowane w 3D (Archiwum CircularChassis2WD)
+https://github.com/szymon-tulodziecki/CircularChassis2WD
 
 - 📦 **Nucleo-G071RB** – zestaw startowy z mikrokontrolerem STM32G071RB
 - 📶 **Bluetooth HC-05** – moduł komunikacji bezprzewodowej
