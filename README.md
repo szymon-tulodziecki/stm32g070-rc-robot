@@ -131,7 +131,36 @@ https://github.com/szymon-tulodziecki/CircularChassis2WD
 </div>
 
 ---
+### 📁 4. Zapisz projekt i wygeneruj kod
 
-### 📁 4. Zapisz projekt, akceptując generowanie kodu
+1. **Zapisz projekt** w STM32CubeIDE, akceptując generowanie kodu.
+2. **Wklej kod z załącznika** do funkcji `main`.
+3. **Podłącz płytkę Nucleo** do komputera, skompiluj projekt i wgraj go na mikrokontroler.
+4. **Odłącz kabel USB**, przełóż zworkę na pozycję VIN i podłącz baterię zgodnie ze schematem.
 
-#### Wklej do funkcji `main` kod z załącznika, debuguj go, podłącz swoją płytkę Nucleo do komputera, skompiluj i wgraj go na nią. Odłącz kabel, przełóż zworkę na pozycję VIN i podłącz baterię zgodnie z wcześniejszym schematem.
+#### 🧑‍💻 Kluczowe funkcje kodu (C, HAL):
+
+- Sterowanie mostkiem H (jazda do przodu/do tyłu, skręcanie, zatrzymanie)
+- Obsługa czujnika HC-SR04 (generowanie sygnału trigger, pomiar czasu echa, obliczanie odległości)
+- Odbiór komend przez UART (Bluetooth), wywoływanie funkcji ruchu oraz zmiana prędkości przez PWM
+
+---
+
+### 📱 5. Aplikacja sterująca
+
+> Do sterowania robotem służy dedykowana aplikacja, komunikująca się z modułem Bluetooth HC-05, działająca na systemach Windows.
+
+Aplikację możesz pobrać z repozytorium GitHub:  
+[https://github.com/szymon-tulodziecki/rcar-control-app](https://github.com/szymon-tulodziecki/rcar-control-app)
+
+<div align="center">
+  <img src="img/app.PNG" alt="Aplikacja Sterująca">
+</div>
+---
+
+## 📝 Podsumowanie
+
+Projekt przedstawia kompletny system zdalnie sterowanego robota opartego na STM32, wyposażonego w czujnik odległości oraz komunikację Bluetooth. W dokumentacji znajdziesz szczegółowe instrukcje dotyczące montażu, konfiguracji sprzętu i oprogramowania, a także gotową aplikację do sterowania robotem.  
+Całość stanowi świetny punkt wyjścia do nauki programowania mikrokontrolerów, obsługi peryferiów oraz budowy własnych projektów robotycznych.
+
+Zachęcam do rozwijania projektu i dzielenia się swoimi pomysłami!
