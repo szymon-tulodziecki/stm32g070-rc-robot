@@ -5,6 +5,29 @@
 
 Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem **HC-SR04** oraz komunikacją **Bluetooth**.
 
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="img/r1.jpeg" alt="Robot - widok 1" width="100%">
+      </td>
+      <td>
+        <img src="img/r2.jpeg" alt="Robot - widok 2" width="100%">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/r3.jpeg" alt="Robot - widok 3" width="100%">
+      </td>
+      <td>
+        <img src="img/r4.jpeg" alt="Robot - widok 4" width="100%">
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 > ⚠️ **Uwaga:** Nie podłączaj baterii do mikrokontrolera bez zmiany ustawień zworki! <br>
 > Domyślnie zworka jest ustawiona w pozycji ST-LINK, co oznacza, że mikrokontroler jest zasilany przez port Micro USB. Baterie podłącz na końcu, gdy cały projekt będzie gotowy. Następnie przełóż zworkę na pozycję VIN, co pozwoli zasilić mikrokontroler napięciem do 12 V. W przeciwnym razie możesz uszkodzić płytkę! <br>
 > ⚠️
