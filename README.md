@@ -25,7 +25,9 @@ Zdalnie sterowany robot oparty na mikrokontrolerze **STM32G071RB** z czujnikiem 
     </tr>
   </table>
 </div>
+
 ---
+
 > ⚠️ **Uwaga:** Nie podłączaj baterii do mikrokontrolera bez zmiany ustawień zworki! <br>
 > Domyślnie zworka jest ustawiona w pozycji ST-LINK, co oznacza, że mikrokontroler jest zasilany przez port Micro USB. Baterie podłącz na końcu, gdy cały projekt będzie gotowy. Następnie przełóż zworkę na pozycję VIN, co pozwoli zasilić mikrokontroler napięciem do 12 V. W przeciwnym razie możesz uszkodzić płytkę! <br>
 > ⚠️
